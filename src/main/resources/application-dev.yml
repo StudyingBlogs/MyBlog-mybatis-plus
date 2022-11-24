@@ -1,0 +1,55 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://1.12.45.248:3306/myblog?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    hikari:
+      max-lifetime: 500000
+#  mail:
+#    host: smtp.qq.com
+#    username: 2711542571@qq.com
+#    # address: 2711542571@qq.com
+#    password: tjbtlimcnbbadgcd
+#    default-encoding: utf-8
+#    protocol: smtp
+#    port: 25
+  mail:
+    host: smtp.qq.com
+    username: 2711542571@qq.com
+    password: tjbtlimcnbbadgcd
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  level:
+    root: info
+    com.star: debug
+  file:
+    name: log/blog-dev.log
+
+
+  redis:
+    host: 1.12.45.248
+    port: 6379
+    database: 0
+    timeout: 1800000
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: -1
+        max-idle: 5
+        min-idle: 0
+    password: root
+
+#mybatis-plus配置控制台打印完整带参数SQL语句
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+spring.thymeleaf.content-type: text/html
+spring.thymeleaf.cache: false
+spring.thymeleaf.mode: LEGACYHTML5
